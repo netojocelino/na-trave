@@ -1,23 +1,47 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Header from './components/Header.vue'
+import Image from './components/Image.vue'
+import CallToAction from './components/CallToAction.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+<div class="app">
+<Header
+    title="Na Trave"
+    imageSource="./assets/logo/logo-fundo-vinho.svg"
+/>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+<Image
+    source="./assets/imagem/img.png"
+    title="Na Trave na Copa do Mundo do Catar 2022"
+    size="large"
+/>
+
+
+<CallToAction
+    title="Dê o seu palpite na Copa do Mundo do Catar 2022!"
+    primaryButtonTitle="Criar minha conta"
+    primaryButtonLinkTo="/newAccount"
+    
+    secondaryButtonTitle="Fazer login"
+    secondaryButtonLinkTo="/login"
+
+>
+    
+</CallToAction>
+</div>
 </template>
 
 <style scoped>
+html, body, .app {
+    background-color: var(--color-red-1);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
 header {
   line-height: 1.5;
 }
