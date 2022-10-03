@@ -1,19 +1,23 @@
 <template>
-  <h2 className="v-call-to-action-title">{{ title }}</h2>
+  <h2 className="text-white text-5xl text-center">{{ title }}</h2>
 
-  <div class="v-call-to-action-buttons">
+  <div class="sm:w-4/5 justify-center self-center items-center">
     <a
-        :href="{ primaryButtonLinkTo }"
-        className="v-call-to-action-button"
+        :href="primaryButtonLinkTo"
     >
-        {{ primaryButtonTitle }}
+        <div className="sm:w-3/5 p-4 bg-white border-solid border-2 border-red-1">
+            {{ primaryButtonTitle }}
+        </div>
     </a>
     <a
         v-if="secondaryButtonTitle !== ''"
-        className="v-call-to-action-button"
-        :href="{ secondaryButtonLinkTo }"
+        :href="secondaryButtonLinkTo"
     >
-        {{ secondaryButtonTitle }}
+        <div
+            className="sm:w-3/5 p-4 bg-red-1 border-solid border-2 border-white"
+        >
+            {{ secondaryButtonTitle }}
+        </div>
     </a>
 
 

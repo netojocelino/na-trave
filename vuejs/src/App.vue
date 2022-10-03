@@ -16,6 +16,7 @@ import CallToAction from './components/CallToAction.vue'
     source="./assets/imagem/img.png"
     title="Na Trave na Copa do Mundo do Catar 2022"
     size="large"
+    className="justify-center self-center"
 />
 
 

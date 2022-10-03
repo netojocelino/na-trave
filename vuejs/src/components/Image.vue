@@ -1,5 +1,5 @@
 <template>
-  <div :class="`v-image v-image-${size ?? 'base'}`" >
+  <div :class="`v-image ${getSize(size)}`" >
     <img
         :src="source"
         :alt="title"
@@ -32,6 +32,23 @@ export default {
             type: String,
             required: false,
         }
+    },
+
+    methods: {
+        getSize(size) {
+            const sizeConfigurations = {
+                'extrasmall': 'w-20',
+                'small': 'w-40',
+                'base': 'w-60',
+                'large': 'w-80',
+                'extralarge': 'w-100',
+            }
+            if (sizeConfigurations.hasOwnProperty(size)) {
+                return sizeConfigurations[size]
+            }
+
+            return sizeConfigurations['base']
+        }
     }
 }
 </script>
@@ -42,31 +59,31 @@ export default {
 }
 
 .v-image-extrasmall,
-.v-image-extrasmall img{
+.v-image- img{
     width: 4rem;
     height: 4rem;
 }
 
-.v-image-small,
+.v-image-,
 .v-image-small img{
     width: 6rem;
     height: 6rem;
 }
 
 .v-image-base,
-.v-image-base img{
+.v-image- img{
     width: 8rem;
     height: 8rem;
 }
 
 .v-image-large,
-.v-image-large img{
+.v-image- img{
     width: 10rem;
     height: 10rem;
 }
 
 .v-image-extralarge,
-.v-image-extralarge img{
+.v-image- img{
     width: 12rem;
     height: 12rem;
 }
