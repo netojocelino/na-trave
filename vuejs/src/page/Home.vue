@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import CallToAction from '../components/CallToAction.vue'
 import Header from '../components/Header.vue'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-<div className="h-screen bg-red-700 text-white flex p-6 flex flex-col items-center space-y-6">
+<div className="h-screen bg-red-700 text-white flex p-6 flex-col items-center space-y-6">
     <Header
         imageSource="/assets/logo/logo-fundo-vinho.svg"
         title="Na Trave"
@@ -24,8 +25,8 @@ import Header from '../components/Header.vue'
             title="Dê o seu palpite na Copa do Mundo do Catar 2022!"
         >
             <template #default>
-                <button className="text-red-700 bg-white text-xl px-8 py-4 rounded-xl">Criar minha conta</button>
-                <button className="text-white border border-white text-xl px-8 py-4 rounded-xl">Criar minha conta</button>
+                <RouterLink to="/signup" className="text-red-700 bg-white text-xl px-8 py-4 rounded-xl">Criar minha conta</RouterLink>
+                <RouterLink to="/signin" className="text-white border border-white text-xl px-8 py-4 rounded-xl">Fazer login</RouterLink>
             </template>
             
         </CallToAction>
