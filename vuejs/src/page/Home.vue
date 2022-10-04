@@ -4,12 +4,12 @@ import Header from '../components/Header.vue'
 </script>
 
 <template>
-<div className="h-screen bg-red-700 text-white flex">
+<div className="h-screen bg-red-700 text-white flex p-6 flex flex-col items-center space-y-6">
     <Header
         imageSource="/assets/logo/logo-fundo-vinho.svg"
         title="Na Trave"
      />
-    <div className="container p-6 flex-1 flex flex-col items-center md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+    <div className="container max-w-5xl flex-1 p-4 flex flex-col items-center md:flex-row space-y-6 md:space-y-0 md:space-x-6">
 
         <div className="md:flex-1 flex justify-center">
             <img

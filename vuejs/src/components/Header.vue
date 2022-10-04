@@ -1,35 +1,19 @@
 <template>
-    <header
-        className="flex justify-center mb-10"
-    >
-        <h1>
-            <template v-if="imageSource !== undefined">
-                <a :href="href">
-                    <img :alt="title" :title="title" :src="imageSource" />
-                </a>
-            </template>
-            <template v-else>
-                <a :href="href">{{ title }}</a>
-            </template>
-        </h1>
+    <header className="container flex justify-center max-w-5xl p-4">
+        <img :alt="title" :title="title" :src="imageSource" className="max-w-xs" />
     </header>
 </template>
 
 <script>
 export default {
     props: {
-        href: {
-            type: String,
-            required: false,
-            default: '#'
-        },
         title: {
             type: String,
             required: false,
         },
         imageSource: {
             type: String,
-            required: false,
+            required: true,
         }
 
     }
