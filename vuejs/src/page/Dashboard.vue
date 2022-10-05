@@ -25,17 +25,23 @@ import MatchCard from '@/components/MatchCard.vue'
         </Header>
     </div>
 
-    <section className="container max-w-3xl p-4">
-        <!-- <nav className="flex justify-center items-center flex-1 mb-10">
-            <Icon icon="arrow-left" className="w-10" />
-            {{ date }}
-            <Icon icon="arrow-right" className="w-10" />
-        </nav> -->
+    <section className="container max-w-3xl p-4 space-y-4">
+        <nav className="flex space-x-4 p-4 justify-center items-center flex-1">
+            <Icon icon="arrow-left" className="w-6 cursor-pointer" />
+            <span>{{ date }}</span>
+            <Icon icon="arrow-right" className="w-6 cursor-pointer" />
+        </nav>
 
-        <MatchCard
-            startsAt="13:00"
-            :teams="[{initial: 'cat', flag: '/assets/bandeiras/cat.png'},{initial: 'equ', flag: '/assets/bandeiras/equ.png'}]"
-        />
+        <template
+            v-for="(item, key, index) in matchs"   
+            :key="index"
+            className="space-y-4"
+        >
+            <MatchCard
+                :startsAt="key"
+                :teams="item"
+            />
+        </template>
             
     </section>
 </div>
@@ -45,7 +51,26 @@ import MatchCard from '@/components/MatchCard.vue'
 export default {
   data: () => ({
     username: 'Neto',
-    date: '20 de Novembro',
+    date: '24 de Novembro',
+
+    matchs: {
+        '07:00': [
+            {initial: 'sui', flag: '/assets/bandeiras/sui.png'},
+            {initial: 'cam', flag: '/assets/bandeiras/cam.png'}
+        ],
+        '10:00': [
+            {initial: 'uru', flag: '/assets/bandeiras/uru.png'},
+            {initial: 'cor', flag: '/assets/bandeiras/cor.png'}
+        ],
+        '13:00': [
+            {initial: 'por', flag: '/assets/bandeiras/por.png'},
+            {initial: 'gan', flag: '/assets/bandeiras/gan.png'}
+        ],
+        '16:00': [
+            {initial: 'bra', flag: '/assets/bandeiras/bra.png'},
+            {initial: 'ser', flag: '/assets/bandeiras/ser.png'}
+        ],
+    }
   }),
 
 }
