@@ -35,7 +35,7 @@ export default {
             type: String,
             required: false,
             default: 'main',
-            validate(value: any) {
+            validator(value: any) {
                 if (typeof value !== 'string') {
                     return false
                 }

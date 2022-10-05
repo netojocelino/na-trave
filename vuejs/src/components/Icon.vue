@@ -29,7 +29,7 @@ export default {
         icon: {
             type: String,
             required: true,
-            validate(value: string) {
+            validator(value: string) {
                 return isIconKey(value)
             }
         }
