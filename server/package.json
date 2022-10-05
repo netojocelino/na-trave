@@ -3,6 +3,9 @@
     "version": "0.0.0",
     "description": "",
     "main": "src/server.ts",
+    "prisma": {
+        "seed": "ts-node prisma/seed.ts"
+    },
     "scripts": {
         "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/server.ts"
     },
