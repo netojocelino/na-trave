@@ -1,6 +1,12 @@
 <template>
     <header :className="`${concatClasses(classHeader, justify)}`">
-        <img :alt="title" :title="title" :src="imageSource" :className="`${skinTheme(theme ?? 'main')}`" />
+        <img
+            :alt="title"
+            :title="title"
+            :src="imageSource"
+            :className="`${skinTheme(theme ?? 'main')}`"
+            @click.prevent="$router.push('/')"
+        />
         <slot name="default"></slot>
     </header>
     <slot name="subheader"></slot>
