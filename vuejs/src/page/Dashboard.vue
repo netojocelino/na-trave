@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Header from '@/components/Header.vue'
 import Icon from '@/components/Icon.vue'
+import MatchCard from '@/components/MatchCard.vue'
 </script>
 
 <template>
@@ -31,32 +32,11 @@ import Icon from '@/components/Icon.vue'
             <Icon icon="arrow-right" className="w-10" />
         </nav> -->
 
-            <div className="rounded-xl border border-gray-300 p-4 text-center">
-                <span className="text-sm md:text-base text-gray-700 font-bold">13:00</span>
-
-                <div className="flex space-x-5 justify-center items-center">
-                    <span className="uppercase">CAT</span>
-                    <img src="/assets/bandeiras/cat.png" alt="Bandeira de CAT">
-
-
-                    <input
-                        min="0"
-                        max="20"
-                        className="self-stretch bg-red-300/[0.15] text-red-700 text-xl w-[55px] p-2"
-                        type="number"
-                    />
-                    <span className="text-red-500 font-bold">&times;</span>
-                    <input
-                        min="0"
-                        max="20"
-                        className="self-stretch bg-red-300/[0.15] text-red-700 text-xl w-[55px] p-2"
-                        type="number"
-                    />
-
-                    <span className="uppercase">EQU</span>
-                    <img src="/assets/bandeiras/equ.png" alt="Bandeira de EQU">
-                </div>
-            </div>
+        <MatchCard
+            startsAt="13:00"
+            :teams="[{initial: 'cat', flag: '/assets/bandeiras/cat.png'},{initial: 'equ', flag: '/assets/bandeiras/equ.png'}]"
+        />
+            
     </section>
 </div>
 </template>
@@ -71,12 +51,4 @@ export default {
 }
 </script>
 
-<style scoped>
-input[type=number],
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-  margin: 0;
-}
-</style>
+<style scoped></style>
