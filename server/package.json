@@ -1,0 +1,39 @@
+{
+    "name": "na-trave-api",
+    "version": "0.0.0",
+    "description": "",
+    "main": "src/server.ts",
+    "scripts": {
+        "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/server.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/netojocelino/na-trave.git"
+    },
+    "author": {
+        "name": "Jocelino Neto",
+        "email": "netoj96@live.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/netojocelino/na-trave/issues"
+    },
+    "homepage": "https://github.com/netojocelino/na-trave/blob/main/vuejs/README.md",
+    "dependencies": {
+        "@koa/cors": "^3.4.2",
+        "@prisma/client": "^4.4.0",
+        "koa": "^2.13.4",
+        "koa-bodyparser": "^4.3.0",
+        "koa-router": "^12.0.0"
+    },
+    "devDependencies": {
+        "@types/koa": "^2.13.5",
+        "@types/koa__cors": "^3.3.0",
+        "@types/koa-bodyparser": "^4.3.8",
+        "@types/koa-router": "^7.4.4",
+        "nodemon": "^2.0.20",
+        "prisma": "^4.4.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.4"
+    }
+}

@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+    provider             = "mysql"
+    url                  = env("DATABASE_URL")
+    referentialIntegrity = "prisma"
+}
+
+model User {
+    id String @id @default(cuid())
+
+    name     String
+    email    String @unique
+    username String @unique
+
+    password String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    hunches Hunch[]
+}
+
+model GameMatch {
+    id String @id @default(cuid())
+
+    teamAInitial String
+    teamBInitial String
+
+    gameTime DateTime
+
+    // group
+    // level
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    hunches Hunch[]
+}
+
+model Hunch {
+    id String @id @default(cuid())
+
+    userId String
+    gameId String
+
+    teamA Int
+    teamB Int
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    user User      @relation(fields: [userId], references: [id])
+    game GameMatch @relation(fields: [gameId], references: [id])
+}
