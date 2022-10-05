@@ -9,7 +9,7 @@ import Icon from '@/components/Icon.vue'
     <Header
         imageSource="/assets/logo/logo-fundo-branco.svg"
         title="Na Trave"
-        class="container flex justify-center max-w-5xl p-4 border-b border-red-300"
+        classHeader="border-b border-red-300"
     />
 
     <main className="p-4">

@@ -1,7 +1,9 @@
 <template>
-    <header className="container flex justify-center max-w-5xl p-4">
+    <header :className="`${concatClasses(classHeader, justify)}`">
         <img :alt="title" :title="title" :src="imageSource" :className="`${skinTheme(theme ?? 'main')}`" />
+        <slot name="default"></slot>
     </header>
+    <slot name="subheader"></slot>
 </template>
 
 <script lang="ts">
@@ -9,6 +11,16 @@ type ThemeOptions = 'main' | 'landing'
 
 export default {
     props: {
+        justify: {
+            type: String,
+            required: false,
+        },
+
+        classHeader: {
+            type: String,
+            required: false,
+        },
+
         title: {
             type: String,
             required: false,
@@ -41,7 +53,7 @@ export default {
         themeOptions: {
             'main': 'w-32 md:w-40 ',
             'landing': 'max-w-xs',
-        }
+        },
     }),
 
     methods: {
@@ -53,6 +65,25 @@ export default {
             const localTheme = this.themeOptions[(theme as ThemeOptions)]
 
             return localTheme
+        },
+
+        concatClasses(newClasses: string = '') {
+            const entryClasses = "container flex max-w-5xl p-4"
+            const obj: Record<string, boolean> = {}
+
+            entryClasses
+                .split(' ')
+                .map((key) => obj[key] = true)
+
+            newClasses
+                .split(' ')
+                .map((key: string) => obj[key] = true)
+
+            if (!('justify-between' in obj)) {
+                obj['justify-center'] = true
+            }
+
+            return Object.keys(obj).join(' ')
         }
     }
 }
