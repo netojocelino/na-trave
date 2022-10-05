@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Header from '../components/Header.vue'
-import VInput from '../components/Input.vue'
-import Icon from '../components/Icon.vue'
+import Header from '@/components/Header.vue'
+import VInput from '@/components/Input.vue'
+import Icon from '@/components/Icon.vue'
 </script>
 
 <template>

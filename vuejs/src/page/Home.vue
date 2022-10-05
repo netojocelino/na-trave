@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CallToAction from '../components/CallToAction.vue'
-import Header from '../components/Header.vue'
+import CallToAction from '@/components/CallToAction.vue'
+import Header from '@/components/Header.vue'
 import { RouterLink } from 'vue-router'
 </script>
 
