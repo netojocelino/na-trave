@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DateNavigation from '@/components/DateNavigation.vue'
 import Header from '@/components/Header.vue'
 import Icon from '@/components/Icon.vue'
 import MatchCard from '@/components/MatchCard.vue'
@@ -28,19 +29,9 @@ import MatchCard from '@/components/MatchCard.vue'
     <section className="container max-w-3xl p-4 space-y-4">
         <h2 className="text-red-500 text-xl font-bold">Seus palpites</h2>
 
-        <nav className="flex space-x-4 p-4 justify-center items-center flex-1">
-            <Icon
-                @click.prevent="previousDay"
-                icon="arrow-left"
-                className="w-6 cursor-pointer"
-            />
-            <span className="font-bold">{{ dateStringify }}</span>
-            <Icon
-                @click.prevent="nextDay"
-                icon="arrow-right"
-                className="w-6 cursor-pointer"
-            />
-        </nav>
+        <DateNavigation
+            :startsData="new Date()"
+        />
 
         <template
             v-for="(item, key, index) in matchs"   
@@ -59,29 +50,18 @@ import MatchCard from '@/components/MatchCard.vue'
 
 <script lang="ts">
 
-function dateToString(date: Date) {
-    let monthDay = `${date.getDate()}`
-    if ((+monthDay) < 10) {
-        monthDay = `0${monthDay}`
-    }
-    const monthName = [
-        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
-    ][date.getMonth()]
-    
-    return `${monthDay} de ${monthName}`
-}
 
 
 export default {
   created () {
     this.date = new Date()
 
+
   },
   data: () => ({
     username: 'Neto',
     date: (new Date()),
-    dateStringify: dateToString(new Date()),
+    dateStringify: '',
 
     matchs: {
         '16:00': [
@@ -90,23 +70,6 @@ export default {
         ],
     }
   }),
-
-  methods: {
-    nextDay () {
-        this.date.setDate(
-            this.date.getDate() + 1
-        )
-        this.dateStringify = dateToString(this.date)
-        
-    },
-
-    previousDay () {
-        this.date.setDate(
-            this.date.getDate() - 1
-        )
-        this.dateStringify = dateToString(this.date)
-    },
-  }
 
 }
 </script>
