@@ -30,8 +30,8 @@ model User {
 model GameMatch {
     id String @id @default(cuid())
 
-    teamAInitial String
-    teamBInitial String
+    homeTeam String
+    awayTeam String
 
     gameTime DateTime
 
@@ -50,8 +50,8 @@ model Hunch {
     userId String
     gameId String
 
-    teamA Int
-    teamB Int
+    homeTeamScore Int
+    awayTeamScore Int
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
