@@ -25,16 +25,16 @@ import Icon from '../components/Icon.vue'
         <form className="space-y-6 space-x-2">
 
             <v-input
-                label="Seu Email"
+                label="Seu email"
                 name="email"
-                placeholder="Digite seu Email"
+                placeholder="Digite seu email"
                 type="email"
              />
 
             <v-input
-                label="Seu Senha"
+                label="Sua senha"
                 name="password"
-                placeholder="Digite seu Senha"
+                placeholder="Digite sua senha"
                 type="password"
              />
 

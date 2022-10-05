@@ -11,6 +11,9 @@
 </template>
 
 <script lang="ts">
+/**
+ * @TODO add hidden/show password button
+ */
 export default {
     props: {
         label: {
