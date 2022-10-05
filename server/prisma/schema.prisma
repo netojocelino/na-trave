@@ -42,6 +42,8 @@ model GameMatch {
     updatedAt DateTime @updatedAt
 
     hunches Hunch[]
+
+    @@unique([homeTeam, awayTeam, gameTime])
 }
 
 model Hunch {
