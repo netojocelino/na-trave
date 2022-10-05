@@ -5,25 +5,37 @@
         <div className="flex space-x-5 justify-center items-center">
 
             <span className="uppercase">{{ teams[0].initial }}</span>
-            <img :src="teams[0].flag" :alt="`Bandeira de ${teams[0].initial}`">
+            <img
+                :src="teams[0].flag"
+                :alt="`Bandeira de ${teams[0].initial.toUpperCase()}`"
+                :title="`Bandeira de ${teams[0].initial.toUpperCase()}`"
+            >
 
 
             <input
                 min="0"
                 max="20"
-                className="self-stretch bg-red-300/[0.15] text-red-700 text-xl w-[55px] p-2"
+                :disabled="teams[0].goals !== undefined"
+                :className="`self-stretch bg-red-300/[0.15] text-red-500 text-xl text-center w-[55px] h-[55px] p-2 ${teams[0].goals !== undefined ? 'rounded-full' : ''}`"
                 type="number"
+                :value="teams[0].goals"
             />
             <span className="text-red-500 font-bold">&times;</span>
             <input
                 min="0"
                 max="20"
-                className="self-stretch bg-red-300/[0.15] text-red-700 text-xl w-[55px] p-2"
+                :disabled="teams[1].goals !== undefined"
+                :className="`self-stretch bg-red-300/[0.15] text-red-500 text-xl text-center w-[55px] h-[55px] p-2 ${teams[1].goals !== undefined ? 'rounded-full' : ''}`"
                 type="number"
+                :value="teams[1].goals"
             />
 
-            <span className="uppercase">{{teams[1].initial}}</span>
-            <img :src="teams[1].flag" :alt="`Bandeira de ${teams[1].initial}`">
+            <img
+                :src="teams[1].flag"
+                :alt="`Bandeira de ${teams[1].initial.toUpperCase()}`"
+                :title="`Bandeira de ${teams[1].initial.toUpperCase()}`"
+            >
+            <span className="uppercase">{{teams[1].initial.toUpperCase()}}</span>
         </div>
     </div>  
 </template>

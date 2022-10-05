@@ -13,7 +13,11 @@ import MatchCard from '@/components/MatchCard.vue'
             classHeader="container max-w-3xl flex justify-between p-2"
         >
             <template #default>
-                <Icon icon="profile" className="w-10" />
+                <Icon
+                    icon="profile"
+                    className="w-10 cursor-pointer"
+                    @click.prevent="$router.push('/profile')" 
+                />
             </template>
 
             <template #subheader>
@@ -28,7 +32,7 @@ import MatchCard from '@/components/MatchCard.vue'
     <section className="container max-w-3xl p-4 space-y-4">
         <nav className="flex space-x-4 p-4 justify-center items-center flex-1">
             <Icon icon="arrow-left" className="w-6 cursor-pointer" />
-            <span>{{ date }}</span>
+            <span className="font-bold">{{ date }}</span>
             <Icon icon="arrow-right" className="w-6 cursor-pointer" />
         </nav>
 
