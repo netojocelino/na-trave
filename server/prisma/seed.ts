@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { PrismaClient } from "@prisma/client"
+const prisma = new PrismaClient()
 
 const games = [
     {
@@ -242,7 +242,7 @@ const games = [
         homeTeam: "cam",
         awayTeam: "bra",
     },
-];
+]
 
 async function Main() {
     const quantity = await prisma.gameMatch.count()
@@ -252,6 +252,6 @@ async function Main() {
 
     await prisma.gameMatch.createMany({
         data: games,
-    });
+    })
 }
-Main();
+Main()
