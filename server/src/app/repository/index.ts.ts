@@ -8,6 +8,7 @@ const Repositories = {
     User: {
         UserCreate: (context: any) => UserRepository.UserCreate(prisma, context),
         UserList: (context: any) => UserRepository.UserList(prisma, context),
+        UserLogin: (context: any) => UserRepository.UserLogin(prisma, context),
     },
 }
 

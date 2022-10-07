@@ -1,5 +1,10 @@
 ### Server
 
+### Login user
+POST http://localhost:5000/user/login
+Authorization: Bearer am9jZWxpbm9fMTY2NTE4MDczNDpzZW5oYTEyMw==
+
+
 ### List all users
 GET http://localhost:5000/users
 

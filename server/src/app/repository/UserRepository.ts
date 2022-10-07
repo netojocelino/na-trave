@@ -3,12 +3,15 @@ import { createHash } from 'node:crypto'
 import { validateUser } from '../User'
 
 
+const hash = (str: string) => createHash('sha256')
+    .update(str)
+    .digest('hex')
+
+
 const UserCreate = async (dbClient: any, context: any) => {
     const body = context.request.body
 
-    const password = createHash('sha256')
-        .update(body.password)
-        .digest('hex')
+    const password = hash(body.password)
 
 
     const data = {
@@ -54,7 +57,37 @@ const UserList = async (dbClient: any, context: any) => {
     context.status = 200
 }
 
+const UserLogin = async (dbClient: any, context: any) => {
+
+    try {
+        const [type, token] = context.headers.authorization.split(' ')
+
+        const [username, password] = atob(token).split(':')
+
+        const user = await dbClient.user.findFirst({
+            where: { username, }
+        })
+
+        if (!user) {
+            throw new Error('Invalid Username/Passoword')
+        }
+
+        if (hash(password) !== user.password) {
+            throw new Error('Invalid Username/Passoword')
+        }
+        user.password = undefined
+
+
+        context.body = user
+    } catch (error) {
+        console.error(error)
+        context.body = error
+        context.status = 500
+    }
+}
+
 export default {
     UserCreate,
     UserList,
+    UserLogin,
 }
