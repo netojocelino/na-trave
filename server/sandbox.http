@@ -1,0 +1,17 @@
+### Server
+
+### List all users
+GET http://localhost:5000/users
+
+
+
+### Create a new user
+POST http://localhost:5000/user
+Content-Type: application/json
+
+{
+    "name": "Jocelino",
+    "username": "jocelino_{{$timestamp}}",
+    "email": "jocelino_{{$timestamp}}@email.com",
+    "password": "senha123"
+}
