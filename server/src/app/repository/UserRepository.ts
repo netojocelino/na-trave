@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import jwt from 'jsonwebtoken'
 
 import { validateUser } from '../User'
 
@@ -77,8 +78,16 @@ const UserLogin = async (dbClient: any, context: any) => {
         }
         user.password = undefined
 
+        const accessToken = jwt.sign({
+            sub: user.id,
+            name: user.username,
+        }, process.env.JWT_SECRET!)
 
-        context.body = user
+
+        context.body = {
+            user,
+            accessToken,
+        }
     } catch (error) {
         console.error(error)
         context.body = error
