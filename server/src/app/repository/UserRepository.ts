@@ -1,10 +1,9 @@
 import { createHash } from 'node:crypto'
 
-import { PrismaClient } from "@prisma/client"
 import { validateUser } from '../User'
 
 
-const UserCreate = async (prisma: PrismaClient, context: any) => {
+const UserCreate = async (dbClient: any, context: any) => {
     const body = context.request.body
 
     const password = createHash('sha256')
@@ -26,7 +25,7 @@ const UserCreate = async (prisma: PrismaClient, context: any) => {
     }
 
     try {
-        const user = await prisma.user.create({
+        const user = await dbClient.user.create({
             select: {
                 id: true,
                 name: true,
@@ -46,7 +45,16 @@ const UserCreate = async (prisma: PrismaClient, context: any) => {
 
 }
 
+const UserList = async (dbClient: any, context: any) => {
+    const users = await dbClient.user.findMany({
+        select: { id: true, name: true },
+        orderBy: { createdAt: 'asc' }
+    })
+    context.body = users
+    context.status = 200
+}
 
 export default {
     UserCreate,
+    UserList,
 }
