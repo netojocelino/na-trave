@@ -81,6 +81,7 @@ const UserLogin = async (dbClient: any, context: any) => {
         const accessToken = jwt.sign({
             sub: user.id,
             name: user.username,
+            expiredIn: '7d'
         }, process.env.JWT_SECRET!)
 
 
