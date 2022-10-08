@@ -20,3 +20,18 @@ Content-Type: application/json
     "email": "jocelino_{{$timestamp}}@email.com",
     "password": "senha123"
 }
+
+
+#####################################################################
+################### HUNCHES
+#####################################################################
+
+POST http://localhost:5000/hunch
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbDh6MW02dTkwMDAwZ2kwY2NjeWIyeWg5IiwibmFtZSI6ImpvY2VsaW5vXzE2NjUxODA3MzQiLCJpYXQiOjE2NjUxODQ4NDB9.1Mfh_LEnVInGZ0UsAAFJvX9UmmUiebB1ZSCh3YbtN-o
+Content-Type: application/json
+
+{
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "gameId": "cl8vy8t3l0000gi1g2ee2lje1"
+}

@@ -7,4 +7,6 @@ router.post('/user', Repositories.User.UserCreate)
 router.post('/user/login', Repositories.User.UserLogin)
 router.get('/users', Repositories.User.UserList)
 
+router.post('/hunch', Repositories.Hunch.HunchCreate)
+
 export default router
