@@ -5,11 +5,18 @@ import { validateHunch } from '../Hunch'
 
 const HunchCreate = async (dbClient: any, context: any) => {
 
+    let UserData
     try {
         const [_, token] = context.headers.authorization.split(' ')
 
-        const UserData = jwt.verify(token, process.env.JWT_SECRET!)
+        UserData = jwt.verify(token, process.env.JWT_SECRET!)
 
+    } catch (error) {
+        context.status = 401
+        return
+    }
+
+    try {
         const hunch = {
             userId: `${UserData.sub}`,
             gameId: `${context.request.body.gameId}`,
